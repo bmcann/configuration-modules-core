@@ -2,8 +2,8 @@ Simple base test
 ---
 metaconfigservice=/etc/tnsnames.ora
 ---
-address_name
-protocol
-host_name
-port
-service_name
+VCERT2_CS
+PROTOCOL
+HOST
+PORT
+SERVICE_NAME
