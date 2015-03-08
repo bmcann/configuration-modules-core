@@ -4,15 +4,42 @@ include 'metaconfig/tnsnames/config';
 
 prefix '/software/components/metaconfig/services/{/etc/tnsnames.ora}/contents';
 'net_service_name' = 'VCERT2_CS';
-'load_balance' = 'ON';
-'failover' = 'ON';
-'addresses' = 
+'address_lists' =
     list(
         nlist(
-            'protocol', 'TCP',
-            'host', 'lcgdb51.gridpp.rl.ac.uk',
-            'port', 1521,
+            'load_balance','ON',
+            'failover', 'ON',
+            'addresses',  
+                list(
+                    nlist(
+                        'protocol', 'TCP',
+                        'host', 'chico.gridpp.rl.ac.uk',
+                        'port', 1500,
+                         ),
+                    nlist(
+                        'protocol', 'UDP',
+                        'host', 'harpo.gridpp.rl.ac.uk',
+                        'port', 1600,
+                         ),
+                    ),
              ),
-        );
+        nlist(
+            'load_balance','OFF',
+            'failover', 'OFF',
+            'addresses',
+                list(
+                    nlist(
+                        'protocol', 'TCP',
+                        'host', 'groucho.gridpp.rl.ac.uk',
+                        'port', 1700,
+                         ),
+                    nlist(
+                        'protocol', 'UDP',
+                        'host', 'zeppo.gridpp.rl.ac.uk',
+                        'port', 1800,
+                         ),
+                    ),
+             ),
+);
 'service_name' = 'vcert2_cs.gridpp.rl.ac.uk';
 'server' = 'DEDICATED';

@@ -8,11 +8,15 @@ type address = {
     'port' : long(0..)
 } = nlist();
 
-type tnsnames_service = {
-    'net_service_name' : string
+type address_list = {
     'load_balance' ? string with match(SELF,'^(ON|OFF|YES|NO|TRUE|FALSE)$')
     'failover' ? string with match(SELF,'^(ON|OFF|YES|NO|TRUE|FALSE)$')
     'addresses' : address[]
+} = nlist();
+
+type tnsnames_service = {
+    'net_service_name' : string
+    'address_lists' : address_list[]
     'service_name' : string
     'server' ? string with match(SELF,'^(DEDICATED|SHARED|POOLED)$')
 };

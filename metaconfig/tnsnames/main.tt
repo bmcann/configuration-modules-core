@@ -2,15 +2,16 @@
 [% FILTER indent('  ') -%]
 (DESCRIPTION =
 [% FILTER indent('  ') -%]
-(ADDRESS_LIST =
+[%- FOREACH address_list IN address_lists -%]
+(ADDRESS_LIST = [%  %]
 [% FILTER indent('  ') -%]
-[%     IF load_balance.defined -%]
-(LOAD_BALANCE = [% load_balance %])
+[%     IF address_list.load_balance.defined -%]
+(LOAD_BALANCE = [% address_list.load_balance %])
 [%     END -%]
-[%     IF failover.defined -%]
-(FAILOVER = [% failover %])
+[%     IF address_list.failover.defined -%]
+(FAILOVER = [% address_list.failover %])
 [%     END -%]
-[%- FOREACH address IN addresses -%]
+[%- FOREACH address IN address_list.addresses -%]
 (ADDRESS =
 [% FILTER indent('  ') -%]
 (PROTOCOL = [% address.protocol %])
@@ -21,6 +22,7 @@
 )
 [% END -%]
 )
+[% END -%]
 [% END -%]
 [% FILTER indent('  ') -%]
 (CONNECT_DATA =
