@@ -1,0 +1,18 @@
+[% address_name %] =
+[% FILTER indent -%]
+(DESCRIPTION =
+(ADDRESS_LIST =
+(ADDRESS =
+(PROTOCOL = [% protocol %])
+(HOST = [% host_name %])
+(PORT = [% port %])
+)
+)
+(CONNECT_DATA =
+(SERVICE_NAME = [% service_name %])
+[%     IF option.defined -%]
+(OPTION = [% option %])
+[%     END -%]
+)
+)
+[% END %]
