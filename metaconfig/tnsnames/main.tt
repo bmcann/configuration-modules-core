@@ -10,11 +10,13 @@
 [%     IF failover.defined -%]
 (FAILOVER = [% failover %])
 [%     END -%]
+[%- FOREACH address IN addresses -%]
 (ADDRESS =
 [% FILTER indent('  ') -%]
-(PROTOCOL = [% protocol %])
-(HOST = [% host %])
-(PORT = [% port %])
+(PROTOCOL = [% address.protocol %])
+(HOST = [% address.host %])
+(PORT = [% address.port %])
+[% END -%]
 [% END -%]
 )
 [% END -%]
