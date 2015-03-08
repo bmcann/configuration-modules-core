@@ -13,7 +13,7 @@
 (ADDRESS =
 [% FILTER indent('  ') -%]
 (PROTOCOL = [% protocol %])
-(HOST = [% host_name %])
+(HOST = [% host %])
 (PORT = [% port %])[% END %]
 )[% END %]
 )[% END %]
