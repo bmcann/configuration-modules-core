@@ -3,8 +3,11 @@ object template config;
 include 'metaconfig/tnsnames/config';
 
 prefix '/software/components/metaconfig/services/{/etc/tnsnames.ora}/contents';
-'address_name' = 'VCERT2_CS';
+'net_service_name' = 'VCERT2_CS';
+
+
 'protocol' = 'TCP';
 'host_name' = 'lcgdb51.gridpp.rl.ac.uk';
 'port' = 1521;
 'service_name' = 'vcert2_cs.gridpp.rl.ac.uk';
+
