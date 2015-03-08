@@ -4,6 +4,12 @@
 [% FILTER indent('  ') -%]
 (ADDRESS_LIST =
 [% FILTER indent('  ') -%]
+[%     IF load_balance.defined -%]
+(LOAD_BALANCE = [% load_balance %])
+[%     END -%]
+[%     IF failover.defined -%]
+(FAILOVER = [% failover %])
+[%     END -%]
 (ADDRESS =
 [% FILTER indent('  ') -%]
 (PROTOCOL = [% protocol %])

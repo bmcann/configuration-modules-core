@@ -4,6 +4,8 @@ include 'pan/types';
 
 type tnsnames_service = {
     'address_name' : string
+    'load_balance' ? boolean
+    'failover' ? boolean
     'protocol' : string
     'host_name' : type_hostname
     'port' : long(0..)
