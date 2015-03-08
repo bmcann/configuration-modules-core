@@ -21,8 +21,9 @@
 (CONNECT_DATA =
 [% FILTER indent('  ') -%]
 (SERVICE_NAME = [% service_name %])[% END %]
-[%     IF option.defined -%]
-(OPTION = [% option %])
+[%     IF server.defined -%]
+[% FILTER indent('  ') -%]
+(SERVER = [% server %])[% END %]
 [%     END -%]
 )[% END %]
 )
