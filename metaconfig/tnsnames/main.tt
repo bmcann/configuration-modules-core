@@ -14,16 +14,21 @@
 [% FILTER indent('  ') -%]
 (PROTOCOL = [% protocol %])
 (HOST = [% host %])
-(PORT = [% port %])[% END %]
-)[% END %]
-)[% END %]
+(PORT = [% port %])
+[% END -%]
+)
+[% END -%]
+)
+[% END -%]
 [% FILTER indent('  ') -%]
 (CONNECT_DATA =
 [% FILTER indent('  ') -%]
+(SERVICE_NAME = [% service_name %])
 [%     IF server.defined -%]
 (SERVER = [% server %])
 [%     END -%]
-(SERVICE_NAME = [% service_name %])[% END %]
-)[% END %]
+[% END -%]
 )
-[% END %]
+[% END -%]
+)
+[% END -%]
