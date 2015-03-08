@@ -1,6 +1,9 @@
-Base test for config
+Simple base test
 ---
-multiline
+metaconfigservice=/etc/tnsnames.ora
 ---
-$wontmatch^
-
+address_name
+protocol
+host_name
+port
+service_name
