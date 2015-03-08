@@ -1,4 +1,4 @@
-[% address_name %] =
+[% net_service_name %] =
 [% FILTER indent('  ') -%]
 (DESCRIPTION =
 [% FILTER indent('  ') -%]

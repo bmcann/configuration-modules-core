@@ -3,7 +3,7 @@ declaration template metaconfig/tnsnames/schema;
 include 'pan/types';
 
 type tnsnames_service = {
-    'address_name' : string
+    'net_service_name' : string
     'load_balance' ? boolean
     'failover' ? boolean
     'protocol' : string
