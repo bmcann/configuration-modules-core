@@ -3,7 +3,7 @@ object template config;
 include 'metaconfig/tnsnames/config';
 
 prefix '/software/components/metaconfig/services/{/etc/tnsnames.ora}/contents';
-'net_service_name' = 'SERVICE_NAME';
+'net_service_name' = 'NET_SERVICE_NAME';
 'address_lists' =
     list(
         nlist(
