@@ -3,7 +3,7 @@ declaration template metaconfig/tnsnames/schema;
 include 'pan/types';
 
 type address = {
-    'protocol' : string with match(SELF,'^(TCP|UDP)$')
+    'protocol' : string = 'TCP' with match(SELF,'^(TCP|UDP)$')
     'host' : type_hostname
     'port' : long(0..) = 1521
 } = nlist();
