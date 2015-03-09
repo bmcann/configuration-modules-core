@@ -32,6 +32,19 @@
 [%     IF connect_datum.server.defined -%]
 (SERVER = [% connect_datum.server %])
 [%     END -%]
+[%- FOREACH failover_mode IN connect_datum.failover_settings -%]
+(FAILOVER_MODE =
+[% FILTER indent('  ') -%]
+[%     IF failover_mode.backup.defined -%]
+(BACKUP = [% failover_mode.backup %])
+[%     END -%]
+(TYPE = [% failover_mode.type %])
+[%     IF failover_mode.method.defined -%]
+(METHOD = [% failover_mode.method %])
+[%     END -%]
+[% END -%]
+)
+[% END -%]
 [% END -%]
 [% END -%]
 )

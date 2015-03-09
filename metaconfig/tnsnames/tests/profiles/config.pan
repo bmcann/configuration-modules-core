@@ -46,6 +46,13 @@ prefix '/software/components/metaconfig/services/{/etc/tnsnames.ora}/contents';
         nlist(
             'service_name', 'vcert2_cs.gridpp.rl.ac.uk',
             'server', 'DEDICATED',
+            'failover_settings',
+                list(
+                    nlist(
+                        'backup', 'ponzi.gridpp.rl.ac.uk',
+                        'type', 'SESSION',
+                        'method', 'PRECONNECT',
+                         ),
+                    ),
              ),
-
 );
