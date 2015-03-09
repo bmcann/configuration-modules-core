@@ -3,7 +3,7 @@ object template config;
 include 'metaconfig/tnsnames/config';
 
 prefix '/software/components/metaconfig/services/{/etc/tnsnames.ora}/contents';
-'net_service_name' = 'VCERT2_CS';
+'net_service_name' = 'SERVICE_NAME';
 'address_lists' =
     list(
         nlist(
@@ -13,12 +13,12 @@ prefix '/software/components/metaconfig/services/{/etc/tnsnames.ora}/contents';
                 list(
                     nlist(
                         'protocol', 'TCP',
-                        'host', 'chico.gridpp.rl.ac.uk',
+                        'host', 'chico.lab.ac.uk',
                         'port', 1500,
                          ),
                     nlist(
                         'protocol', 'UDP',
-                        'host', 'harpo.gridpp.rl.ac.uk',
+                        'host', 'harpo.lab.ac.uk',
                         'port', 1600,
                          ),
                     ),
@@ -30,12 +30,12 @@ prefix '/software/components/metaconfig/services/{/etc/tnsnames.ora}/contents';
                 list(
                     nlist(
                         'protocol', 'TCP',
-                        'host', 'groucho.gridpp.rl.ac.uk',
+                        'host', 'groucho.lab.ac.uk',
                         'port', 1700,
                          ),
                     nlist(
                         'protocol', 'UDP',
-                        'host', 'zeppo.gridpp.rl.ac.uk',
+                        'host', 'zeppo.lab.ac.uk',
                         'port', 1800,
                          ),
                     ),
@@ -44,12 +44,12 @@ prefix '/software/components/metaconfig/services/{/etc/tnsnames.ora}/contents';
 'connect_data' = 
     list(
         nlist(
-            'service_name', 'vcert2_cs.gridpp.rl.ac.uk',
+            'service_name', 'service_name.lab.ac.uk',
             'server', 'DEDICATED',
             'failover_settings',
                 list(
                     nlist(
-                        'backup', 'ponzi.gridpp.rl.ac.uk',
+                        'backup', 'ponzi.lab.ac.uk',
                         'type', 'SESSION',
                         'method', 'PRECONNECT',
                          ),
