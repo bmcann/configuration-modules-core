@@ -18,8 +18,8 @@
 (HOST = [% address.host %])
 (PORT = [% address.port %])
 [% END -%]
-[% END -%]
 )
+[% END -%]
 [% END -%]
 )
 [% END -%]
