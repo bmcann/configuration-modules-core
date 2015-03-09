@@ -5,7 +5,7 @@ include 'pan/types';
 type address = {
     'protocol' : string with match(SELF,'^(TCP|UDP)$')
     'host' : type_hostname
-    'port' : long(0..)
+    'port' : long(0..) = 1521
 } = nlist();
 
 type address_list = {
