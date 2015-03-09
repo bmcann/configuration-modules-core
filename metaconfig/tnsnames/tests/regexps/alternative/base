@@ -1,0 +1,9 @@
+Simple base test
+---
+metaconfigservice=/etc/tnsnames.ora
+---
+VCERT2_CS
+PROTOCOL
+HOST
+PORT
+SERVICE_NAME
