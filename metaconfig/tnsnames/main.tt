@@ -27,10 +27,12 @@
 [% FILTER indent('  ') -%]
 (CONNECT_DATA =
 [% FILTER indent('  ') -%]
-(SERVICE_NAME = [% service_name %])
-[%     IF server.defined -%]
-(SERVER = [% server %])
+[%- FOREACH connect_datum IN connect_data -%]
+(SERVICE_NAME = [% connect_datum.service_name %])
+[%     IF connect_datum.server.defined -%]
+(SERVER = [% connect_datum.server %])
 [%     END -%]
+[% END -%]
 [% END -%]
 )
 [% END -%]

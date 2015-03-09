@@ -14,9 +14,13 @@ type address_list = {
     'addresses' : address[]
 } = nlist();
 
+type connect_datum = {
+    'service_name' : string
+    'server' ? string with match(SELF,'^(DEDICATED|SHARED|POOLED)$')
+} = nlist();
+
 type tnsnames_service = {
     'net_service_name' : string
     'address_lists' : address_list[]
-    'service_name' : string
-    'server' ? string with match(SELF,'^(DEDICATED|SHARED|POOLED)$')
+    'connect_data' : connect_datum[1]
 };

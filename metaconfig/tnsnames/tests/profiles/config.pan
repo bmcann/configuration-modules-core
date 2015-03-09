@@ -41,5 +41,11 @@ prefix '/software/components/metaconfig/services/{/etc/tnsnames.ora}/contents';
                     ),
              ),
 );
-'service_name' = 'vcert2_cs.gridpp.rl.ac.uk';
-'server' = 'DEDICATED';
+'connect_data' = 
+    list(
+        nlist(
+            'service_name', 'vcert2_cs.gridpp.rl.ac.uk',
+            'server', 'DEDICATED',
+             ),
+
+);
