@@ -2,7 +2,7 @@
 [% FILTER indent('  ') -%]
 (DESCRIPTION =
 [% FILTER indent('  ') -%]
-[%- FOREACH address_list IN address_lists -%]
+[%- FOREACH address_list IN protocol_address -%]
 (ADDRESS_LIST = [%  %]
 [% FILTER indent('  ') -%]
 [%     IF address_list.load_balance.defined -%]

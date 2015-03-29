@@ -4,7 +4,7 @@ include 'metaconfig/tnsnames/config';
 
 prefix '/software/components/metaconfig/services/{/etc/tnsnames.ora}/contents';
 'net_service_name' = 'NET_SERVICE_NAME';
-'address_lists' =
+'protocol_address' =
     list(
         nlist(
             'load_balance','ON',

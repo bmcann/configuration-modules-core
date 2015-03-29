@@ -31,6 +31,6 @@ type connect_datum = {
 # Tnsnames.ora section
 type tnsnames_service = {
     'net_service_name' : string
-    'address_lists' : address_list[]
+    'protocol_address' : address_list[]
     'connect_data' : connect_datum[1]
 };
