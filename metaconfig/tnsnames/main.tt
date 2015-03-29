@@ -1,8 +1,8 @@
 [% net_service_name %] =
 [% FILTER indent('  ') -%]
 (DESCRIPTION =
-[% FILTER indent('  ') -%]
-[%- FOREACH address_list IN protocol_address -%]
+[%     FILTER indent('  ') -%]
+[%-        FOREACH address_list IN protocol_address -%]
 (ADDRESS_LIST = [%  %]
 [% FILTER indent('  ') -%]
 [%     IF address_list.load_balance.defined -%]
@@ -19,8 +19,8 @@
 (PORT = [% address_parameter.port %])
 [% END -%]
 )
-[% END -%]
-[% END -%]
+[%         END -%]
+[%     END -%]
 )
 [% END -%]
 [% END -%]
