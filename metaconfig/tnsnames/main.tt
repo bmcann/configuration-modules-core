@@ -44,6 +44,15 @@
 [%             END -%]
 [%         END -%]
 )
+[%         IF security.defined -%]
+[%-            FOREACH security_parameter IN security -%]
+(SECURITY =
+[%                 FILTER indent('  ') -%]
+(SSL_SERVER_CERT_DN = "[% security_parameter.ssl_server_cert_dn %]")
+[%                 END -%]
+)
+[%             END -%]
+[%         END -%]
 [%     END -%]
 )
 [% END -%]

@@ -56,3 +56,9 @@ prefix '/software/components/metaconfig/services/{/etc/tnsnames.ora}/contents';
                     ),
              ),
 );
+'security' =
+    list(
+        nlist(
+            'ssl_server_cert_dn', 'cn=schema,cn=database,dc=example,dc=com',
+             ),
+);
