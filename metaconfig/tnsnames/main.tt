@@ -32,19 +32,17 @@
 [%     IF connect_data_parameter.server.defined -%]
 (SERVER = [% connect_data_parameter.server %])
 [%     END -%]
+[%     IF connect_data_parameter.failover_mode.defined -%]
 [%- FOREACH failover_parameter IN connect_data_parameter.failover_mode -%]
 (FAILOVER_MODE =
 [% FILTER indent('  ') -%]
-[%     IF failover_parameter.backup.defined -%]
 (BACKUP = [% failover_parameter.backup %])
-[%     END -%]
 (TYPE = [% failover_parameter.type %])
-[%     IF failover_parameter.method.defined -%]
 (METHOD = [% failover_parameter.method %])
-[%     END -%]
 [% END -%]
 )
 [% END -%]
+[%     END -%]
 [% END -%]
 [% END -%]
 )
