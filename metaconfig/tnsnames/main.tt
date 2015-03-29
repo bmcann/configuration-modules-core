@@ -2,48 +2,48 @@
 [% FILTER indent('  ') -%]
 (DESCRIPTION =
 [%     FILTER indent('  ') -%]
-[%-    FOREACH address_list IN protocol_address -%]
+[%-        FOREACH address_list IN protocol_address -%]
 (ADDRESS_LIST = [%  %]
-[%         FILTER indent('  ') -%]
-[%         IF address_list.load_balance.defined -%]
-(LOAD_BALANCE = [% address_list.load_balance %])
-[%         END -%]
-[%         IF address_list.failover.defined -%]
-(FAILOVER = [% address_list.failover %])
-[%         END -%]
-[%-        FOREACH address_parameter IN address_list.address -%]
-(ADDRESS =
 [%             FILTER indent('  ') -%]
+[%                 IF address_list.load_balance.defined -%]
+(LOAD_BALANCE = [% address_list.load_balance %])
+[%                 END -%]
+[%                 IF address_list.failover.defined -%]
+(FAILOVER = [% address_list.failover %])
+[%                 END -%]
+[%-                    FOREACH address_parameter IN address_list.address -%]
+(ADDRESS =
+[%                         FILTER indent('  ') -%]
 (PROTOCOL = [% address_parameter.protocol %])
 (HOST = [% address_parameter.host %])
 (PORT = [% address_parameter.port %])
+[%                         END -%]
+)
+[%                     END -%]
 [%             END -%]
 )
 [%         END -%]
-[%     END -%]
-)
-[%     END -%]
 (CONNECT_DATA =
-[% FILTER indent('  ') -%]
-[%- FOREACH connect_data_parameter IN connect_data -%]
+[%         FILTER indent('  ') -%]
+[%-            FOREACH connect_data_parameter IN connect_data -%]
 (SERVICE_NAME = [% connect_data_parameter.service_name %])
-[%     IF connect_data_parameter.server.defined -%]
+[%                 IF connect_data_parameter.server.defined -%]
 (SERVER = [% connect_data_parameter.server %])
-[%     END -%]
-[%     IF connect_data_parameter.failover_mode.defined -%]
-[%- FOREACH failover_parameter IN connect_data_parameter.failover_mode -%]
+[%                 END -%]
+[%                 IF connect_data_parameter.failover_mode.defined -%]
+[%-                    FOREACH failover_parameter IN connect_data_parameter.failover_mode -%]
 (FAILOVER_MODE =
-[% FILTER indent('  ') -%]
+[%                         FILTER indent('  ') -%]
 (BACKUP = [% failover_parameter.backup %])
 (TYPE = [% failover_parameter.type %])
 (METHOD = [% failover_parameter.method %])
-[% END -%]
+[%                         END -%]
 )
-[% END -%]
+[%                     END -%]
+[%                 END -%]
+[%             END -%]
+[%         END -%]
+)
 [%     END -%]
-[% END -%]
-[% END -%]
-)
-[% END -%]
 )
 [% END -%]
