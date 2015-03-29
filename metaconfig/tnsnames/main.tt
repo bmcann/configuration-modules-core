@@ -27,12 +27,12 @@
 [% FILTER indent('  ') -%]
 (CONNECT_DATA =
 [% FILTER indent('  ') -%]
-[%- FOREACH connect_datum IN connect_data -%]
-(SERVICE_NAME = [% connect_datum.service_name %])
-[%     IF connect_datum.server.defined -%]
-(SERVER = [% connect_datum.server %])
+[%- FOREACH connect_data_parameter IN connect_data -%]
+(SERVICE_NAME = [% connect_data_parameter.service_name %])
+[%     IF connect_data_parameter.server.defined -%]
+(SERVER = [% connect_data_parameter.server %])
 [%     END -%]
-[%- FOREACH failover_parameter IN connect_datum.failover_mode -%]
+[%- FOREACH failover_parameter IN connect_data_parameter.failover_mode -%]
 (FAILOVER_MODE =
 [% FILTER indent('  ') -%]
 [%     IF failover_parameter.backup.defined -%]

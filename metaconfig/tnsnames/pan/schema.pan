@@ -22,7 +22,7 @@ type failover_parameter = {
     'method' ? string with match(SELF,'^(BASIC|PRECONNECT)$')
 } = nlist();
 
-type connect_datum = {
+type connect_data_parameter = {
     'service_name' : string
     'server' ? string with match(SELF,'^(DEDICATED|SHARED|POOLED)$')
     'failover_mode' ? failover_parameter[1]
@@ -32,5 +32,5 @@ type connect_datum = {
 type tnsnames_service = {
     'net_service_name' : string
     'protocol_address' : address_list[]
-    'connect_data' : connect_datum[1]
+    'connect_data' : connect_data_parameter[1]
 };
