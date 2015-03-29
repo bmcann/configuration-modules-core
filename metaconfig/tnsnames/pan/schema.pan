@@ -17,9 +17,9 @@ type address_list = {
 
 # Connect data section
 type failover_parameter = {
-    'backup' ? type_hostname
+    'backup' : string
     'type' : string with match(SELF,'^(SESSION|SELECT|NONE)$')
-    'method' ? string with match(SELF,'^(BASIC|PRECONNECT)$')
+    'method' : string with match(SELF,'^(BASIC|PRECONNECT)$')
 } = nlist();
 
 type connect_data_parameter = {
