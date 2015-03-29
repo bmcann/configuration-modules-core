@@ -2,29 +2,27 @@
 [% FILTER indent('  ') -%]
 (DESCRIPTION =
 [%     FILTER indent('  ') -%]
-[%-        FOREACH address_list IN protocol_address -%]
+[%-    FOREACH address_list IN protocol_address -%]
 (ADDRESS_LIST = [%  %]
-[% FILTER indent('  ') -%]
-[%     IF address_list.load_balance.defined -%]
+[%         FILTER indent('  ') -%]
+[%         IF address_list.load_balance.defined -%]
 (LOAD_BALANCE = [% address_list.load_balance %])
-[%     END -%]
-[%     IF address_list.failover.defined -%]
+[%         END -%]
+[%         IF address_list.failover.defined -%]
 (FAILOVER = [% address_list.failover %])
-[%     END -%]
-[%- FOREACH address_parameter IN address_list.address -%]
+[%         END -%]
+[%-        FOREACH address_parameter IN address_list.address -%]
 (ADDRESS =
-[% FILTER indent('  ') -%]
+[%             FILTER indent('  ') -%]
 (PROTOCOL = [% address_parameter.protocol %])
 (HOST = [% address_parameter.host %])
 (PORT = [% address_parameter.port %])
-[% END -%]
+[%             END -%]
 )
 [%         END -%]
 [%     END -%]
 )
-[% END -%]
-[% END -%]
-[% FILTER indent('  ') -%]
+[%     END -%]
 (CONNECT_DATA =
 [% FILTER indent('  ') -%]
 [%- FOREACH connect_data_parameter IN connect_data -%]
