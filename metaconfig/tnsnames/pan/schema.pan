@@ -2,6 +2,7 @@ declaration template metaconfig/tnsnames/schema;
 
 include 'pan/types';
 
+# Protocol address section
 type address = {
     'protocol' : string = 'TCP' with match(SELF,'^(TCP|UDP)$')
     'host' : type_hostname
@@ -14,6 +15,7 @@ type address_list = {
     'addresses' : address[]
 } = nlist();
 
+# Connect data section
 type failover_mode = {
     'backup' ? type_hostname
     'type' : string with match(SELF,'^(SESSION|SELECT|NONE)$')
@@ -26,6 +28,7 @@ type connect_datum = {
     'failover_settings' ? failover_mode[1]
 } = nlist();
 
+# Tnsnames.ora section
 type tnsnames_service = {
     'net_service_name' : string
     'address_lists' : address_list[]
