@@ -46,7 +46,7 @@ prefix '/software/components/metaconfig/services/{/etc/tnsnames.ora}/contents';
         nlist(
             'service_name', 'servicename.example.com',
             'server', 'DEDICATED',
-            'failover_settings',
+            'failover_mode',
                 list(
                     nlist(
                         'backup', 'backupservicename.example.com',
