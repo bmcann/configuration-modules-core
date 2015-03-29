@@ -3,7 +3,7 @@ declaration template metaconfig/tnsnames/schema;
 include 'pan/types';
 
 # Protocol address section
-type address = {
+type address_parameter = {
     'protocol' : string = 'TCP' with match(SELF,'^(TCP|UDP)$')
     'host' : type_hostname
     'port' : long(0..) = 1521
@@ -12,7 +12,7 @@ type address = {
 type address_list = {
     'load_balance' ? string with match(SELF,'^(ON|OFF|YES|NO|TRUE|FALSE)$')
     'failover' ? string with match(SELF,'^(ON|OFF|YES|NO|TRUE|FALSE)$')
-    'addresses' : address[]
+    'address' : address_parameter[]
 } = nlist();
 
 # Connect data section

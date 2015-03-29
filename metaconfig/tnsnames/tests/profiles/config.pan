@@ -9,7 +9,7 @@ prefix '/software/components/metaconfig/services/{/etc/tnsnames.ora}/contents';
         nlist(
             'load_balance','ON',
             'failover', 'ON',
-            'addresses',  
+            'address',  
                 list(
                     nlist(
                         'protocol', 'TCP',
@@ -26,7 +26,7 @@ prefix '/software/components/metaconfig/services/{/etc/tnsnames.ora}/contents';
         nlist(
             'load_balance','OFF',
             'failover', 'OFF',
-            'addresses',
+            'address',
                 list(
                     nlist(
                         'protocol', 'TCP',
