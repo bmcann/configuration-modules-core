@@ -13,12 +13,12 @@ prefix '/software/components/metaconfig/services/{/etc/tnsnames.ora}/contents';
                 list(
                     nlist(
                         'protocol', 'TCP',
-                        'host', 'chico.lab.ac.uk',
+                        'host', 'chico.example.com',
                         'port', 1500,
                          ),
                     nlist(
                         'protocol', 'UDP',
-                        'host', 'harpo.lab.ac.uk',
+                        'host', 'harpo.example.com',
                         'port', 1600,
                          ),
                     ),
@@ -30,12 +30,12 @@ prefix '/software/components/metaconfig/services/{/etc/tnsnames.ora}/contents';
                 list(
                     nlist(
                         'protocol', 'TCP',
-                        'host', 'groucho.lab.ac.uk',
+                        'host', 'groucho.example.com',
                         'port', 1700,
                          ),
                     nlist(
                         'protocol', 'UDP',
-                        'host', 'zeppo.lab.ac.uk',
+                        'host', 'zeppo.example.com',
                         'port', 1800,
                          ),
                     ),
@@ -44,12 +44,12 @@ prefix '/software/components/metaconfig/services/{/etc/tnsnames.ora}/contents';
 'connect_data' = 
     list(
         nlist(
-            'service_name', 'service_name.lab.ac.uk',
+            'service_name', 'servicename.example.com',
             'server', 'DEDICATED',
             'failover_settings',
                 list(
                     nlist(
-                        'backup', 'ponzi.lab.ac.uk',
+                        'backup', 'backupservicename.example.com',
                         'type', 'SESSION',
                         'method', 'PRECONNECT',
                          ),
