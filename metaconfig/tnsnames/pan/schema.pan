@@ -24,6 +24,8 @@ type failover_parameter = {
 
 type connect_data_parameter = {
     'service_name' : string
+    'rdb_database' ? string # identifies the Oracle Rdb database by its filename
+    'global_name' ? string # should only be defined if 'rdb_database' is defined
     'server' ? string with match(SELF,'^(DEDICATED|SHARED|POOLED)$')
     'failover_mode' ? failover_parameter[1]
 } = nlist();

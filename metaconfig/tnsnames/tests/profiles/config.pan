@@ -45,6 +45,8 @@ prefix '/software/components/metaconfig/services/{/etc/tnsnames.ora}/contents';
     list(
         nlist(
             'service_name', 'servicename.example.com',
+            'rdb_database', 'rdb_filename',
+            'global_name', 'global_database_name',
             'server', 'DEDICATED',
             'failover_mode',
                 list(

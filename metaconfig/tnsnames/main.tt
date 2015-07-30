@@ -27,6 +27,12 @@
 [%         FILTER indent('  ') -%]
 [%-            FOREACH connect_data_parameter IN connect_data -%]
 (SERVICE_NAME = [% connect_data_parameter.service_name %])
+[%                 IF connect_data_parameter.rdb_database.defined -%]
+(RDB_DATABASE = [% connect_data_parameter.rdb_database %])
+[%                 END -%]
+[%                 IF connect_data_parameter.global_name.defined -%]
+(GLOBAL_NAME = [% connect_data_parameter.global_name %])
+[%                 END -%]
 [%                 IF connect_data_parameter.server.defined -%]
 (SERVER = [% connect_data_parameter.server %])
 [%                 END -%]
