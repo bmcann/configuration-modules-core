@@ -1,10 +1,11 @@
+[%- spacing = '  ' -%]
 [% net_service_name %] =
-[% FILTER indent('  ') -%]
+[% FILTER indent(spacing) -%]
 (DESCRIPTION =
-[%     FILTER indent('  ') -%]
+[%     FILTER indent(spacing) -%]
 [%-        FOREACH address_list IN protocol_address -%]
 (ADDRESS_LIST =
-[%             FILTER indent('  ') -%]
+[%             FILTER indent(spacing) -%]
 [%                 IF address_list.load_balance.defined -%]
 (LOAD_BALANCE = [% address_list.load_balance %])
 [%                 END -%]
@@ -13,7 +14,7 @@
 [%                 END -%]
 [%-                    FOREACH address_parameter IN address_list.address -%]
 (ADDRESS =
-[%                         FILTER indent('  ') -%]
+[%                         FILTER indent(spacing) -%]
 (PROTOCOL = [% address_parameter.protocol %])
 (HOST = [% address_parameter.host %])
 (PORT = [% address_parameter.port %])
@@ -24,7 +25,7 @@
 )
 [%         END -%]
 (CONNECT_DATA =
-[%         FILTER indent('  ') -%]
+[%         FILTER indent(spacing) -%]
 [%-            FOREACH connect_data_parameter IN connect_data -%]
 (SERVICE_NAME = [% connect_data_parameter.service_name %])
 [%                 IF connect_data_parameter.rdb_database.defined -%]
@@ -39,7 +40,7 @@
 [%                 IF connect_data_parameter.failover_mode.defined -%]
 [%-                    FOREACH failover_parameter IN connect_data_parameter.failover_mode -%]
 (FAILOVER_MODE =
-[%                         FILTER indent('  ') -%]
+[%                         FILTER indent(spacing) -%]
 (BACKUP = [% failover_parameter.backup %])
 (TYPE = [% failover_parameter.type %])
 (METHOD = [% failover_parameter.method %])
@@ -53,7 +54,7 @@
 [%         IF security.defined -%]
 [%-            FOREACH security_parameter IN security -%]
 (SECURITY =
-[%                 FILTER indent('  ') -%]
+[%                 FILTER indent(spacing) -%]
 (SSL_SERVER_CERT_DN = "[% security_parameter.ssl_server_cert_dn %]")
 [%                 END -%]
 )
