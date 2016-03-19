@@ -36,9 +36,22 @@ type security_parameter = {
 } = dict();
 
 # Tnsnames.ora section
-type tnsnames_service = {
+type connection_configuration = {
     'net_service_name' : string
     'protocol_address' : listener_address_list[]
     'connect_data' : connect_data_parameter[1]
     'security' ? security_parameter[1]
+} = dict();
+
+type tnsnames_service = {
+    'connections' ? connection_configuration[]
 };
+
+
+
+#} = dict() with {
+#    if(exists(SELF['load_balance']) && length(SELF[listener_addresses[host]] < 1)) {
+#        error("My error");
+#    };
+#    true;
+#};

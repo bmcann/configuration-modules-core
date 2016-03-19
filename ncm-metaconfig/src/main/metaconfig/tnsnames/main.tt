@@ -1,9 +1,10 @@
 [%- spacing = '  ' -%]
-[% net_service_name %] =
+[%- FOREACH connection_configuration IN connections -%]
+[% connection_configuration.net_service_name %] =
 [% FILTER indent(spacing) -%]
 (DESCRIPTION =
 [%     FILTER indent(spacing) -%]
-[%-        FOREACH listener_address_list IN protocol_address -%]
+[%-        FOREACH listener_address_list IN connection_configuration.protocol_address -%]
 (ADDRESS_LIST =
 [%             FILTER indent(spacing) -%]
 [%                 IF listener_address_list.load_balance.defined -%]
@@ -26,7 +27,7 @@
 [%         END -%]
 (CONNECT_DATA =
 [%         FILTER indent(spacing) -%]
-[%-            FOREACH connect_data_parameter IN connect_data -%]
+[%-            FOREACH connect_data_parameter IN connection_configuration.connect_data -%]
 (SERVICE_NAME = [% connect_data_parameter.service_name %])
 [%                 IF connect_data_parameter.rdb_database.defined -%]
 (RDB_DATABASE = [% connect_data_parameter.rdb_database %])
@@ -52,7 +53,7 @@
 [%         END -%]
 )
 [%         IF security.defined -%]
-[%-            FOREACH security_parameter IN security -%]
+[%-            FOREACH security_parameter IN connection_configuration.security -%]
 (SECURITY =
 [%                 FILTER indent(spacing) -%]
 (SSL_SERVER_CERT_DN = "[% security_parameter.ssl_server_cert_dn %]")
@@ -62,4 +63,5 @@
 [%         END -%]
 [%     END -%]
 )
+[% END -%]
 [% END -%]
