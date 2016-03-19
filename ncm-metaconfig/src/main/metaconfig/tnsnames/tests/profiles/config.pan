@@ -3,9 +3,9 @@ object template config;
 include 'metaconfig/tnsnames/config';
 
 '/software/components/metaconfig/services/{/etc/tnsnames.ora}/contents/connections' ?= list();
-'/software/components/metaconfig/services/{/etc/tnsnames.ora}/contents/connections' = merge(SELF, list(
-dict(
+'/software/components/metaconfig/services/{/etc/tnsnames.ora}/contents/connections' = append(SELF, dict(
     'net_service_name', 'NET_SERVICE_NAME',
+
     'protocol_address', list(
     dict(
         'load_balance','ON',
@@ -62,6 +62,5 @@ dict(
         'ssl_server_cert_dn', 'cn=schema,cn=database,dc=example,dc=com',
         ),
     )
-),
 ),
 );
