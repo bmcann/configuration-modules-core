@@ -9,7 +9,7 @@ type listener_address = {
     'port' : long(0..) = 1521
 } = dict();
 
-type address_list = {
+type listener_address_list = {
     'load_balance' ? string with match(SELF,'^(ON|OFF|YES|NO|TRUE|FALSE)$')
     'failover' ? string with match(SELF,'^(ON|OFF|YES|NO|TRUE|FALSE)$')
     'addresses' : listener_address[]
@@ -38,7 +38,7 @@ type security_parameter = {
 # Tnsnames.ora section
 type tnsnames_service = {
     'net_service_name' : string
-    'protocol_address' : address_list[]
+    'protocol_address' : listener_address_list[]
     'connect_data' : connect_data_parameter[1]
     'security' ? security_parameter[1]
 };
