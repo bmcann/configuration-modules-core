@@ -12,7 +12,7 @@ type listener_address = {
 type listener_address_list = {
     'load_balance' ? string with match(SELF,'^(ON|OFF|YES|NO|TRUE|FALSE)$')
     'failover' ? string with match(SELF,'^(ON|OFF|YES|NO|TRUE|FALSE)$')
-    'addresses' : listener_address[]
+    'listener_addresses' : listener_address[]
 } = dict();
 
 # Connect data section
