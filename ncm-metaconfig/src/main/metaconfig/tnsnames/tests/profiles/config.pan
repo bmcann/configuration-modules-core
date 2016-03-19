@@ -9,7 +9,7 @@ prefix '/software/components/metaconfig/services/{/etc/tnsnames.ora}/contents';
         dict(
             'load_balance','ON',
             'failover', 'ON',
-            'address',  
+            'addresses',
                 list(
                     dict(
                         'protocol', 'TCP',
@@ -26,7 +26,7 @@ prefix '/software/components/metaconfig/services/{/etc/tnsnames.ora}/contents';
         dict(
             'load_balance','OFF',
             'failover', 'OFF',
-            'address',
+            'addresses',
                 list(
                     dict(
                         'protocol', 'TCP',

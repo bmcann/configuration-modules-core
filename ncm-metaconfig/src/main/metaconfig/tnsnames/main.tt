@@ -12,7 +12,7 @@
 [%                 IF address_list.failover.defined -%]
 (FAILOVER = [% address_list.failover %])
 [%                 END -%]
-[%-                    FOREACH listener_address IN address_list.address -%]
+[%-                    FOREACH listener_address IN address_list.addresses -%]
 (ADDRESS =
 [%                         FILTER indent(spacing) -%]
 (PROTOCOL = [% listener_address.protocol %])
