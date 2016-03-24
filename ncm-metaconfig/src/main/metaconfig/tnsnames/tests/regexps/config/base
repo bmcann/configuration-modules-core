@@ -1,0 +1,9 @@
+Simple base test
+---
+metaconfigservice=/etc/tnsnames.ora
+---
+NET_SERVICE_NAME
+PROTOCOL
+HOST
+PORT
+SERVICE_NAME
