@@ -1,0 +1,67 @@
+[%- spacing = '  ' -%]
+[%- FOREACH connection_configuration IN connections -%]
+[% connection_configuration.net_service_name %] =
+[% FILTER indent(spacing) -%]
+(DESCRIPTION =
+[%     FILTER indent(spacing) -%]
+[%-        FOREACH listener_address_list IN connection_configuration.protocol_address -%]
+(ADDRESS_LIST =
+[%             FILTER indent(spacing) -%]
+[%                 IF listener_address_list.load_balance.defined -%]
+(LOAD_BALANCE = [% listener_address_list.load_balance %])
+[%                 END -%]
+[%                 IF listener_address_list.failover.defined -%]
+(FAILOVER = [% listener_address_list.failover %])
+[%                 END -%]
+[%-                    FOREACH listener_address IN listener_address_list.listener_addresses -%]
+(ADDRESS =
+[%                         FILTER indent(spacing) -%]
+(PROTOCOL = [% listener_address.protocol %])
+(HOST = [% listener_address.host %])
+(PORT = [% listener_address.port %])
+[%                         END -%]
+)
+[%                     END -%]
+[%             END -%]
+)
+[%         END -%]
+(CONNECT_DATA =
+[%         FILTER indent(spacing) -%]
+[%-            FOREACH connect_data_parameter IN connection_configuration.connect_data -%]
+(SERVICE_NAME = [% connect_data_parameter.service_name %])
+[%                 IF connect_data_parameter.rdb_database.defined -%]
+(RDB_DATABASE = [% connect_data_parameter.rdb_database %])
+[%                 END -%]
+[%                 IF connect_data_parameter.global_name.defined -%]
+(GLOBAL_NAME = [% connect_data_parameter.global_name %])
+[%                 END -%]
+[%                 IF connect_data_parameter.server.defined -%]
+(SERVER = [% connect_data_parameter.server %])
+[%                 END -%]
+[%                 IF connect_data_parameter.failover_mode.defined -%]
+[%-                    FOREACH failover_parameter IN connect_data_parameter.failover_mode -%]
+(FAILOVER_MODE =
+[%                         FILTER indent(spacing) -%]
+(BACKUP = [% failover_parameter.backup %])
+(TYPE = [% failover_parameter.type %])
+(METHOD = [% failover_parameter.method %])
+[%                         END -%]
+)
+[%                     END -%]
+[%                 END -%]
+[%             END -%]
+[%         END -%]
+)
+[%         IF security.defined -%]
+[%-            FOREACH security_parameter IN connection_configuration.security -%]
+(SECURITY =
+[%                 FILTER indent(spacing) -%]
+(SSL_SERVER_CERT_DN = "[% security_parameter.ssl_server_cert_dn %]")
+[%                 END -%]
+)
+[%             END -%]
+[%         END -%]
+[%     END -%]
+)
+[% END -%]
+[% END -%]
