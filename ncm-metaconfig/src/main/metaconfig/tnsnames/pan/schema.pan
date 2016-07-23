@@ -12,7 +12,7 @@ type listener_address = {
 type listener_address_list = {
     'load_balance' ? string with match(SELF,'^(ON|OFF|YES|NO|TRUE|FALSE)$')
     'failover' ? string with match(SELF,'^(ON|OFF|YES|NO|TRUE|FALSE)$')
-    'listener_addresses' : listener_address[]
+    'address' : listener_address[]
 } = dict();
 
 # Connect data section
@@ -38,7 +38,7 @@ type security_parameter = {
 # Tnsnames.ora section
 type connection_configuration = {
     'net_service_name' : string
-    'protocol_address' : listener_address_list[]
+    'address_list' : listener_address_list[]
     'connect_data' : connect_data_parameter[1]
     'security' ? security_parameter[1]
 } = dict();
@@ -46,12 +46,3 @@ type connection_configuration = {
 type tnsnames_service = {
     'connections' ? connection_configuration[]
 };
-
-
-
-#} = dict() with {
-#    if(exists(SELF['load_balance']) && length(SELF[listener_addresses[host]] < 1)) {
-#        error("My error");
-#    };
-#    true;
-#};

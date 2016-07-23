@@ -4,7 +4,7 @@
 [% FILTER indent(spacing) -%]
 (DESCRIPTION =
 [%     FILTER indent(spacing) -%]
-[%-        FOREACH listener_address_list IN connection_configuration.protocol_address -%]
+[%-        FOREACH listener_address_list IN connection_configuration.address_list -%]
 (ADDRESS_LIST =
 [%             FILTER indent(spacing) -%]
 [%                 IF listener_address_list.load_balance.defined -%]
@@ -13,7 +13,7 @@
 [%                 IF listener_address_list.failover.defined -%]
 (FAILOVER = [% listener_address_list.failover %])
 [%                 END -%]
-[%-                    FOREACH listener_address IN listener_address_list.listener_addresses -%]
+[%-                    FOREACH listener_address IN listener_address_list.address -%]
 (ADDRESS =
 [%                         FILTER indent(spacing) -%]
 (PROTOCOL = [% listener_address.protocol %])

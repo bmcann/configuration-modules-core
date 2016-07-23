@@ -6,11 +6,11 @@ include 'metaconfig/tnsnames/config';
 '/software/components/metaconfig/services/{/etc/tnsnames.ora}/contents/connections' = append(SELF, dict(
     'net_service_name', 'NET_SERVICE_NAME',
 
-    'protocol_address', list(
+    'address_list', list(
     dict(
         'load_balance','ON',
         'failover', 'ON',
-        'listener_addresses', list(
+        'address', list(
         dict(
             'protocol', 'TCP',
             'host', 'chico.example.com',
@@ -27,7 +27,7 @@ include 'metaconfig/tnsnames/config';
     dict(
         'load_balance','OFF',
         'failover', 'OFF',
-        'listener_addresses', list(
+        'address', list(
         dict(
             'protocol', 'TCP',
             'host', 'groucho.example.com',
