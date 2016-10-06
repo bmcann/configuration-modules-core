@@ -1,4 +1,8 @@
 [%- spacing = '  ' -%]
+
+
+
+
 [%- FOREACH connection_configuration IN connections -%]
 [% connection_configuration.net_service_name %] =
 [% FILTER indent(spacing) -%]
@@ -25,6 +29,14 @@
 [%             END -%]
 )
 [%         END -%]
+
+
+
+
+
+
+
+
 (CONNECT_DATA =
 [%         FILTER indent(spacing) -%]
 [%-            FOREACH connect_data_parameter IN connection_configuration.connect_data -%]
@@ -52,8 +64,9 @@
 [%             END -%]
 [%         END -%]
 )
-[%         IF security.defined -%]
-[%-            FOREACH security_parameter IN connection_configuration.security -%]
+[%     END -%]
+[%-        FOREACH security_parameter IN connection_configuration.security -%]
+[%             IF security_parameter.ssl_server_cert_dn.defined -%]
 (SECURITY =
 [%                 FILTER indent(spacing) -%]
 (SSL_SERVER_CERT_DN = "[% security_parameter.ssl_server_cert_dn %]")
@@ -63,5 +76,4 @@
 [%         END -%]
 [%     END -%]
 )
-[% END -%]
 [% END -%]
